@@ -1,0 +1,54 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sample-leader
+  labels:
+    kueue.x-k8s.io/pod-group-name: "sample-group"
+    kueue.x-k8s.io/queue-name: drl-interns
+spec:
+  completions: 3
+  parallelism: 3
+  template:
+    metadata:
+      labels:
+        kueue.x-k8s.io/pod-group-name: "sample-group"
+      annotations:
+        kueue.x-k8s.io/pod-group-total-count: "6" # Total pods in the PodGroup (leader + worker)
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: sleep
+        image: busybox
+        command: ["sh", "-c", 'echo "hello world from the leader pods" && sleep 30']
+        resources:
+          requests:
+            cpu: 2
+            memory: 128Mi
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sample-worker
+  labels:
+    kueue.x-k8s.io/pod-group-name: "sample-group"
+    kueue.x-k8s.io/queue-name: drl-interns
+spec:
+  completions: 3
+  parallelism: 3
+  template:
+    metadata:
+      labels:
+        kueue.x-k8s.io/pod-group-name: "sample-group"
+      annotations:
+        kueue.x-k8s.io/pod-group-total-count: "6" # Total pods in the PodGroup (leader + worker)
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: sleep
+        image: busybox
+        command: ["sh", "-c", 'echo "hello world from the worker pod" && sleep 20']
+        resources:
+          requests:
+            cpu: 1
+            memory: 64Mi
+

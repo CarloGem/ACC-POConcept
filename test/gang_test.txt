@@ -1,0 +1,2480 @@
+
+---- General Node Capacity ----
+
+NAME                          CPU_ALLOCATABLE   MEM_ALLOCATABLE   CPU_CAPACITY   MEM_CAPACITY
+k3d-my-k3d-cluster-agent-0    6                 8123344Ki         6              8123344Ki
+k3d-my-k3d-cluster-agent-1    6                 8123344Ki         6              8123344Ki
+k3d-my-k3d-cluster-agent-2    6                 8123344Ki         6              8123344Ki
+k3d-my-k3d-cluster-server-0   6                 8123344Ki         6              8123344Ki
+
+---- Workloads state at the end ----
+
+NAME                              QUEUE        RESERVED IN     ADMITTED   FINISHED   AGE
+job-sample-job-gang-45knm-54d93   user-queue   cluster-queue                         16s
+job-sample-job-gang-bzzr2-4898c   user-queue   cluster-queue   True                  64s
+job-sample-job-gang-ct56t-6b2ef   user-queue   cluster-queue   True                  48s
+job-sample-job-gang-gcxft-91f87   user-queue   cluster-queue                         32s
+job-sample-job-gang-jk4qk-03e37   user-queue   cluster-queue   True                  80s
+
+---- Controller logs ----
+
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:20] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:08Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+  memory: 7949264Ki
+Pods:
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 7992272Ki
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 500m
+      memory: 128Mi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  memory: 7599056Ki
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+  memory: 8123344Ki
+Pods:
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:20] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:08Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+  memory: 7949264Ki
+Pods:
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 7992272Ki
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 500m
+      memory: 128Mi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  memory: 7599056Ki
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+  memory: 8123344Ki
+Pods:
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:20] ---------->> Starting scheduling process for workload job-sample-job-gang-jk4qk-03e37  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:20] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:20] Workload job-sample-job-gang-jk4qk-03e37 successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:20] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:08Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 7949264Ki
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 7992272Ki
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      memory: 128Mi
+      cpu: 500m
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+  pods: 110
+  cpu: 5500m
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  memory: 8123344Ki
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:20] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:08Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 7949264Ki
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 7992272Ki
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      memory: 128Mi
+      cpu: 500m
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+  pods: 110
+  cpu: 5500m
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  memory: 8123344Ki
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:20] ---------->> Starting scheduling process for workload job-sample-job-gang-jk4qk-03e37  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:20] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:20] Workload job-sample-job-gang-jk4qk-03e37 successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:20] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:08Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 7949264Ki
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 7992272Ki
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 500m
+      memory: 128Mi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  cpu: 6
+  ephemeral-storage: 99833802265
+  memory: 8123344Ki
+  pods: 110
+Pods:
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:20] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:08Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 7949264Ki
+  pods: 110
+  cpu: 6
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 7992272Ki
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 500m
+      memory: 128Mi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  pods: 110
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  cpu: 6
+  ephemeral-storage: 99833802265
+  memory: 8123344Ki
+  pods: 110
+Pods:
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:20] ---------->> Starting scheduling process for workload job-sample-job-gang-jk4qk-03e37  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:20] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:20] Workload job-sample-job-gang-jk4qk-03e37 successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:36] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:23Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1194Mi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 6943696Ki
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 2500m
+      memory: 1152Mi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+  pods: 110
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 7074768Ki
+  pods: 110
+  cpu: 4
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:36] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:23Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1194Mi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 6943696Ki
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 2500m
+      memory: 1152Mi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+  pods: 110
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 7074768Ki
+  pods: 110
+  cpu: 4
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:36] ---------->> Starting scheduling process for workload job-sample-job-gang-bzzr2-4898c  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:36] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:36] Workload job-sample-job-gang-bzzr2-4898c successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-1]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:36] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:23Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1194Mi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+  memory: 6943696Ki
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 2500m
+      memory: 1152Mi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+  pods: 110
+  cpu: 5500m
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  memory: 7074768Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:36] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:23Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1194Mi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+  memory: 6943696Ki
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 2500m
+      memory: 1152Mi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+  pods: 110
+  cpu: 5500m
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  memory: 7074768Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:36] ---------->> Starting scheduling process for workload job-sample-job-gang-bzzr2-4898c  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:36] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:36] Workload job-sample-job-gang-bzzr2-4898c successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-1]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:36] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:23Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1194Mi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+  memory: 6943696Ki
+  pods: 110
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 2500m
+      memory: 1152Mi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+  pods: 110
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  memory: 7074768Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:36] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:23Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1194Mi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+  memory: 6943696Ki
+  pods: 110
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 2500m
+      memory: 1152Mi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  cpu: 5500m
+  ephemeral-storage: 99833802265
+  memory: 7599056Ki
+  pods: 110
+Pods:
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  memory: 7074768Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:36] ---------->> Starting scheduling process for workload job-sample-job-gang-bzzr2-4898c  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:36] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:36] Workload job-sample-job-gang-bzzr2-4898c successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-1]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:52] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:38Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      memory: 1194Mi
+      cpu: 2
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  pods: 110
+  cpu: 1500m
+  ephemeral-storage: 99833802265
+  memory: 5895120Ki
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+  memory: 6550480Ki
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      cpu: 2500m
+      memory: 1536Mi
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  pods: 110
+  cpu: 2
+  ephemeral-storage: 99833802265
+  memory: 6026192Ki
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      memory: 2Gi
+      cpu: 4
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:52] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:38Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      memory: 1194Mi
+      cpu: 2
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  pods: 110
+  cpu: 1500m
+  ephemeral-storage: 99833802265
+  memory: 5895120Ki
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+  memory: 6550480Ki
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      cpu: 2500m
+      memory: 1536Mi
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  pods: 110
+  cpu: 2
+  ephemeral-storage: 99833802265
+  memory: 6026192Ki
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      memory: 2Gi
+      cpu: 4
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:52] ---------->> Starting scheduling process for workload job-sample-job-gang-ct56t-6b2ef  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:52] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:52] Workload job-sample-job-gang-ct56t-6b2ef successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-2]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:52] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:38Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+  memory: 6900688Ki
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      memory: 1194Mi
+      cpu: 2
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 5895120Ki
+  pods: 110
+  cpu: 1500m
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  memory: 6550480Ki
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      memory: 1536Mi
+      cpu: 2500m
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 6026192Ki
+  pods: 110
+  cpu: 2
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      memory: 2Gi
+      cpu: 4
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:52] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:38Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+  memory: 6900688Ki
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      memory: 1194Mi
+      cpu: 2
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 5895120Ki
+  pods: 110
+  cpu: 1500m
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  memory: 6550480Ki
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      memory: 1536Mi
+      cpu: 2500m
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 6026192Ki
+  pods: 110
+  cpu: 2
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      memory: 2Gi
+      cpu: 4
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:52] ---------->> Starting scheduling process for workload job-sample-job-gang-ct56t-6b2ef  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:52] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:52] Workload job-sample-job-gang-ct56t-6b2ef successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-2]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:11:52] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:38Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      memory: 1194Mi
+      cpu: 2
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 5895120Ki
+  pods: 110
+  cpu: 1500m
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+  memory: 6550480Ki
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      cpu: 2500m
+      memory: 1536Mi
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 6026192Ki
+  pods: 110
+  cpu: 2
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      memory: 2Gi
+      cpu: 4
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:11:52] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:38Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 6900688Ki
+  pods: 110
+  cpu: 4
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      memory: 1194Mi
+      cpu: 2
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 5895120Ki
+  pods: 110
+  cpu: 1500m
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  pods: 110
+  cpu: 3500m
+  ephemeral-storage: 99833802265
+  memory: 6550480Ki
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      cpu: 2500m
+      memory: 1536Mi
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      cpu: 500m
+      memory: 512Mi
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 6026192Ki
+  pods: 110
+  cpu: 2
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      memory: 2Gi
+      cpu: 4
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:11:52] ---------->> Starting scheduling process for workload job-sample-job-gang-ct56t-6b2ef  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:52] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:11:52] Workload job-sample-job-gang-ct56t-6b2ef successfully scheduled with gang scheduling on [k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-0 k3d-my-k3d-cluster-agent-2]  [36mcomponent[0m=scheduler
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:12:08] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:53Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 5852112Ki
+  pods: 110
+  cpu: 2
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-ct56t-thw94
+    Namespace: default
+    UUID: 7ad37df7-01c5-46ea-b03b-fb1bea625636
+    Resources:
+      cpu: 4
+      memory: 2218Mi
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 5895120Ki
+  pods: 110
+  cpu: 1500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      memory: 1Gi
+      cpu: 2
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 5501904Ki
+  pods: 110
+  cpu: 1500m
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      cpu: 4500m
+      memory: 2560Mi
+  - Pod Name: sample-job-gang-ct56t-qmthp
+    Namespace: default
+    UUID: b55994ab-b59d-4d85-8de8-8eea4ca9c839
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  memory: 4977616Ki
+  pods: 110
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      memory: 3Gi
+      cpu: 6
+  - Pod Name: sample-job-gang-ct56t-jv429
+    Namespace: default
+    UUID: aef796c8-e02f-4e1b-abcc-327c3dfc20f0
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:12:08] Current Resource Snapshot:
+Last Check: 2024-12-18T15:11:53Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 5852112Ki
+  pods: 110
+  cpu: 2
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-ct56t-thw94
+    Namespace: default
+    UUID: 7ad37df7-01c5-46ea-b03b-fb1bea625636
+    Resources:
+      cpu: 4
+      memory: 2218Mi
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 5895120Ki
+  pods: 110
+  cpu: 1500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      memory: 1Gi
+      cpu: 2
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 5501904Ki
+  pods: 110
+  cpu: 1500m
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      cpu: 4500m
+      memory: 2560Mi
+  - Pod Name: sample-job-gang-ct56t-qmthp
+    Namespace: default
+    UUID: b55994ab-b59d-4d85-8de8-8eea4ca9c839
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  memory: 4977616Ki
+  pods: 110
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      memory: 3Gi
+      cpu: 6
+  - Pod Name: sample-job-gang-ct56t-jv429
+    Namespace: default
+    UUID: aef796c8-e02f-4e1b-abcc-327c3dfc20f0
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:12:08] ---------->> Starting scheduling process for workload job-sample-job-gang-gcxft-91f87  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:12:08] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[31mERRO[0m[2024-12-18 15:12:08] Gang scheduling failed: workload job-sample-job-gang-gcxft-91f87 cannot fit on available nodes  [31mcomponent[0m=scheduler
+[ERROR] Error during scheduling workload job-sample-job-gang-gcxft-91f87 cannot fit on available nodes
+[31mERRO[0m[2024-12-18 15:12:08] Error during scheduling workload job-sample-job-gang-gcxft-91f87 cannot fit on available nodes 
+[INFO] Workload job-sample-job-gang-gcxft-91f87 cannot be scheduled. Requeuing in 60.000000 seconds
+[36mINFO[0m[2024-12-18 15:12:08] Workload job-sample-job-gang-gcxft-91f87 cannot be scheduled. Requeuing in 60.000000 seconds 
+[INFO] ---- Retrieving Resource Monitoring ----
+[36mINFO[0m[2024-12-18 15:12:24] ---- Retrieving Resource Monitoring ----     
+[INFO] Current Resource Snapshot:
+Last Check: 2024-12-18T15:12:23Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 5852112Ki
+  pods: 110
+  cpu: 2
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-ct56t-thw94
+    Namespace: default
+    UUID: 7ad37df7-01c5-46ea-b03b-fb1bea625636
+    Resources:
+      memory: 2218Mi
+      cpu: 4
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 5895120Ki
+  pods: 110
+  cpu: 1500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      memory: 1Gi
+      cpu: 2
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 5501904Ki
+  pods: 110
+  cpu: 1500m
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      cpu: 4500m
+      memory: 2560Mi
+  - Pod Name: sample-job-gang-ct56t-qmthp
+    Namespace: default
+    UUID: b55994ab-b59d-4d85-8de8-8eea4ca9c839
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 4977616Ki
+  pods: 110
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      cpu: 6
+      memory: 3Gi
+  - Pod Name: sample-job-gang-ct56t-jv429
+    Namespace: default
+    UUID: aef796c8-e02f-4e1b-abcc-327c3dfc20f0
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+
+
+[36mINFO[0m[2024-12-18 15:12:24] Current Resource Snapshot:
+Last Check: 2024-12-18T15:12:23Z
+Node Name: k3d-my-k3d-cluster-agent-0
+Namespace: 1a1ba5e1-640a-423d-ae0e-92f219f43e59
+Remaining Resources:
+  memory: 5852112Ki
+  pods: 110
+  cpu: 2
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: sample-job-gang-ct56t-thw94
+    Namespace: default
+    UUID: 7ad37df7-01c5-46ea-b03b-fb1bea625636
+    Resources:
+      memory: 2218Mi
+      cpu: 4
+  - Pod Name: sample-job-gang-jk4qk-9hhp5
+    Namespace: default
+    UUID: 7e62f1e1-c640-4195-9ee1-ec56da06b131
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: coredns-576bfc4dc7-snkf6
+    Namespace: kube-system
+    UUID: 26edcfbd-9bfb-4621-8f5e-ecd1a91d3d11
+    Resources:
+      memory: 170Mi
+  - Pod Name: metrics-server-557ff575fb-z65pm
+    Namespace: kube-system
+    UUID: f14e5861-25b6-4a48-ac77-f6c9f54d8f82
+    Resources:
+  - Pod Name: svclb-traefik-30959300-xxpqv
+    Namespace: kube-system
+    UUID: eb7dff6f-eba5-43b7-accf-4d6ab1efc248
+    Resources:
+  - Pod Name: traefik-5fb479b77-7cg4b
+    Namespace: kube-system
+    UUID: cd25d97a-bf5d-463d-87e6-08062c1ce8e6
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-1
+Namespace: 83fbf017-00ff-4c13-acc0-a152fe661d13
+Remaining Resources:
+  memory: 5895120Ki
+  pods: 110
+  cpu: 1500m
+  ephemeral-storage: 99833802265
+Pods:
+  - Pod Name: acc-3265-controller-manager-64fddfcbc-9nx2f
+    Namespace: acc-3265-system
+    UUID: dc835108-ef4a-4489-b0f7-f746d7605c45
+    Resources:
+      cpu: 4500m
+      memory: 2176Mi
+  - Pod Name: sample-job-gang-bzzr2-twtjm
+    Namespace: default
+    UUID: 853561e5-4469-4ebf-9d00-93c3f2156795
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-4gwpx
+    Namespace: default
+    UUID: a47f2808-8709-44fe-a87d-6608b35cb4f2
+    Resources:
+      memory: 1Gi
+      cpu: 2
+  - Pod Name: svclb-traefik-30959300-9srbh
+    Namespace: kube-system
+    UUID: 6ef9c57c-5c91-41c6-861e-330400d83aff
+    Resources:
+
+Node Name: k3d-my-k3d-cluster-agent-2
+Namespace: 25a678be-5d2b-496a-85c0-4ffa712f20cb
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 5501904Ki
+  pods: 110
+  cpu: 1500m
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-n959x
+    Namespace: default
+    UUID: 2e3cf309-76af-4337-a22b-bea6140e9680
+    Resources:
+      cpu: 4500m
+      memory: 2560Mi
+  - Pod Name: sample-job-gang-ct56t-qmthp
+    Namespace: default
+    UUID: b55994ab-b59d-4d85-8de8-8eea4ca9c839
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: svclb-traefik-30959300-jzjvg
+    Namespace: kube-system
+    UUID: fe0b60f3-e217-428a-872b-509e59729224
+    Resources:
+  - Pod Name: kueue-controller-manager-66d6589497-lxt5s
+    Namespace: kueue-system
+    UUID: ae03a9c4-324d-4a5e-87c4-e04c354a6671
+    Resources:
+      memory: 512Mi
+      cpu: 500m
+
+Node Name: k3d-my-k3d-cluster-server-0
+Namespace: e275fe27-bc14-4009-b33c-b805557fc95b
+Remaining Resources:
+  ephemeral-storage: 99833802265
+  memory: 4977616Ki
+  pods: 110
+Pods:
+  - Pod Name: sample-job-gang-bzzr2-wszqb
+    Namespace: default
+    UUID: 0eab5dac-4c32-4840-ad17-788aa1494f96
+    Resources:
+      cpu: 6
+      memory: 3Gi
+  - Pod Name: sample-job-gang-ct56t-jv429
+    Namespace: default
+    UUID: aef796c8-e02f-4e1b-abcc-327c3dfc20f0
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: sample-job-gang-jk4qk-hm69r
+    Namespace: default
+    UUID: e74e177c-b956-456d-a48f-3e02808a512c
+    Resources:
+      cpu: 2
+      memory: 1Gi
+  - Pod Name: local-path-provisioner-6795b5f9d8-4rkqt
+    Namespace: kube-system
+    UUID: 234b0e3d-38a8-4c63-92cc-ff7eef7274a3
+    Resources:
+  - Pod Name: svclb-traefik-30959300-9fh99
+    Namespace: kube-system
+    UUID: f31c6e4b-fc81-437b-ab33-268a3614310e
+    Resources:
+ 
+[36mINFO[0m[2024-12-18 15:12:24] ---------->> Starting scheduling process for workload job-sample-job-gang-45knm-54d93  [36mcomponent[0m=scheduler
+[36mINFO[0m[2024-12-18 15:12:24] Gang scheduling set to true:                  [36mcomponent[0m=scheduler
+[31mERRO[0m[2024-12-18 15:12:24] Gang scheduling failed: workload job-sample-job-gang-45knm-54d93 cannot fit on available nodes  [31mcomponent[0m=scheduler
+[ERROR] Error during scheduling workload job-sample-job-gang-45knm-54d93 cannot fit on available nodes
+[31mERRO[0m[2024-12-18 15:12:24] Error during scheduling workload job-sample-job-gang-45knm-54d93 cannot fit on available nodes 
+[INFO] Workload job-sample-job-gang-45knm-54d93 cannot be scheduled. Requeuing in 60.000000 seconds
+[36mINFO[0m[2024-12-18 15:12:24] Workload job-sample-job-gang-45knm-54d93 cannot be scheduled. Requeuing in 60.000000 seconds 

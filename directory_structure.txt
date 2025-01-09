@@ -1,0 +1,69 @@
+.
+├── Dockerfile
+├── Makefile
+├── PROJECT
+├── README.md
+├── ample-job-limits-tol.yaml
+├── bin
+│   ├── controller-gen
+│   ├── controller-gen-v0.16.4
+│   ├── kustomize
+│   └── kustomize-v5.5.0
+├── cmd
+│   └── main.go
+├── config
+│   ├── default
+│   │   ├── kustomization.yaml
+│   │   ├── manager_metrics_patch.yaml
+│   │   └── metrics_service.yaml
+│   ├── manager
+│   │   ├── kustomization.yaml
+│   │   └── manager.yaml
+│   ├── network-policy
+│   │   ├── allow-metrics-traffic.yaml
+│   │   └── kustomization.yaml
+│   ├── prometheus
+│   │   ├── kustomization.yaml
+│   │   └── monitor.yaml
+│   └── rbac
+│       ├── kustomization.yaml
+│       ├── leader_election_role.yaml
+│       ├── leader_election_role_binding.yaml
+│       ├── metrics_auth_role.yaml
+│       ├── metrics_auth_role_binding.yaml
+│       ├── metrics_reader_role.yaml
+│       ├── role.yaml
+│       ├── role_binding.yaml
+│       └── service_account.yaml
+├── directory_structure.txt
+├── go.mod
+├── go.sum
+├── hack
+│   ├── boilerplate.go.txt
+│   └── k3d-cluster.yaml
+├── internal
+│   └── controller
+│       ├── admissioncheck_controller.go
+│       ├── admissioncheck_controller_test.go
+│       ├── suite_test.go
+│       ├── workload_controller.go
+│       └── workload_controller_test.go
+├── old-README.md
+├── pkg
+│   ├── logger
+│   │   └── logger.go
+│   └── resource_monitor
+│       └── resource-monitor.go
+├── quick-fix.md
+├── sample-job-limits-tol.yaml
+├── sample-job-limits.yaml
+├── sample-job-no-limits.yaml
+├── test
+│   ├── e2e
+│   │   ├── e2e_suite_test.go
+│   │   └── e2e_test.go
+│   └── utils
+│       └── utils.go
+└── update-controller.sh
+
+18 directories, 49 files

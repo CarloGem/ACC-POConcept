@@ -12,7 +12,7 @@ import (
 )
 
 // As a first implementatipon we decided the following scheduling logic:
-// 1. only consider pods which ONLY have containers that include a LIMIT for ALL resource types they use
+// 1. only consider Guaranteed pods: For every Container in the Pod, the resource limit must equal the resource request.
 // 2. the above rule applies to both workloads and the logic for counting the available capacity of nodes
 // 		2.1 i.e. if a Node has a running pod that states a resource limit for CPU but only a resource request for Memory, then the available capacity of such Node will remain untouched for both CPU and Memory by not considering the entire pod
 // 3. If a workload does not fit the bill for bullet 1, the scheduler prints an info message and accepts it.
@@ -90,17 +90,19 @@ func (sm *SnapshotManager) UpdateSnapshot(clientset *kubernetes.Clientset, names
 			// Aggregate resources for the pod
 			podResourceUsage := corev1.ResourceList{}
 
-			// Iterate over containers in the pod to calculate resource limits
+			// Iterate over containers in the pod to calculate resource requests and limits
 			validPod := true
 			for _, container := range pod.Spec.Containers {
 				for resourceName, limit := range container.Resources.Limits {
-					// Check if the limit is zero
-					if limit.IsZero() {
-						validPod = false
-						logger.Infof("RESOURCE-MONITOR: Pod %s/%s container %s is missing limit for resource %s. Skipping pod.",
+					// Check if the resource request equals the resource limit
+					request, requestExists := container.Resources.Requests[resourceName]
+					if !requestExists || !request.Equal(limit) {
+						validPod = false // not a Guanranteed pod
+						logger.Infof("RESOURCE-MONITOR: Pod %s/%s container %s has mismatched request and limit for resource %s. Skipping pod.",
 							pod.Namespace, pod.Name, container.Name, resourceName)
 						break
 					}
+
 					// Accumulate resource usage
 					if existing, exists := podResourceUsage[resourceName]; exists {
 						existing.Add(limit)

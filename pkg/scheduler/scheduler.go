@@ -12,7 +12,7 @@ import (
 )
 
 // As a first implementatipon we decided the following scheduling logic:
-// 1. only consider pods which ONLY have containers that include a LIMIT for ALL resource types they use
+// 1. only consider Guaranteed pods: For every Container in the Pod, the resource limit must equal the resource request.
 // 2. the above rule applies to both workloads and the logic for counting the available capacity of nodes
 // 		2.1 i.e. if a Node has a running pod that states a resource limit for CPU but only a resource request for Memory, then the available capacity of such Node will remain untouched for both CPU and Memory by not considering the entire pod
 // 3. If a workload does not fit the bill for bullet 1, the scheduler prints an info message and accepts it.
@@ -183,10 +183,11 @@ func aggregateResources(wl kueueapi.Workload) (corev1.ResourceList, bool) {
 	for _, podSet := range wl.Spec.PodSets {
 		// Iterate over all containers in the PodSet
 		for _, container := range podSet.Template.Spec.Containers {
-			for resourceName, _ := range container.Resources.Requests {
-				if _, hasLimit := container.Resources.Limits[resourceName]; !hasLimit {
-					// add log to psecify missing limit?
-					validWorkload = false
+			// Ensure requests and limits match for all resources
+			for resourceName, request := range container.Resources.Requests {
+				limit, hasLimit := container.Resources.Limits[resourceName]
+				if !hasLimit || !request.Equal(limit) {
+					validWorkload = false // workload not Guaranted QoS
 					return nil, false
 				}
 			}
@@ -258,12 +259,19 @@ func nodeCanFitWorkloadPod(podSpec corev1.PodSpec, node resource_monitor.NodeUsa
 	aggregatedLimits := corev1.ResourceList{}
 
 	for _, container := range podSpec.Containers {
-		for resourceName, quantity := range container.Resources.Limits {
-			if existing, exists := aggregatedLimits[resourceName]; exists {
-				existing.Add(quantity)
-				aggregatedLimits[resourceName] = existing
+
+		// Check if resource limits and requests are the same for each container
+		for resourceName, request := range container.Resources.Requests {
+			limit, hasLimit := container.Resources.Limits[resourceName]
+			if !hasLimit || !request.Equal(limit) {
+				return false, fmt.Errorf("QoS not Guaranteed")
 			} else {
-				aggregatedLimits[resourceName] = quantity.DeepCopy()
+				if existing, exists := aggregatedLimits[resourceName]; exists {
+					existing.Add(limit)
+					aggregatedLimits[resourceName] = existing
+				} else {
+					aggregatedLimits[resourceName] = limit.DeepCopy()
+				}
 			}
 		}
 	}

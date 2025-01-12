@@ -18,16 +18,21 @@ Based on https://github.com/kubernetes-sigs/kueue/pull/3265
 
 ```plaintext
 .
-├── cmd                 # Entry point of the controller
-│   └── main.go         # Main logic integrating resource monitor and controller manager
-├── config              # Kubernetes configurations
-│   ├── default         # Default manager configurations
-│   ├── rbac            # Role-based access control (RBAC) configurations
-│   ├── manager         # Manager-specific Kubernetes manifests
-│   └── network-policy  # Network policies for secure communication
-├── internal/controller # Controllers for workloads and admission checks
-├── pkg/resource_monitor
-│   └── resource-monitor.go # Resource monitoring implementation
+├── cmd                   # Entry point of the controller
+│   └── main.go           # Main logic integrating resource monitor and controller manager
+├── config                # Kubernetes configurations
+│   ├── default           # Default manager configurations
+│   ├── rbac              # Role-based access control (RBAC) configurations
+│   ├── manager           # Manager-specific Kubernetes manifests
+│   └── network-policy    # Network policies for secure communication
+├── internal/controller   # Controllers for workloads and admission checks
+├── pkg
+│   ├── evaluator         # Evaluator component implementation
+│   │   └── evaluator.go
+│   ├── logger            # To better organize logs
+│   │   └── logger.go
+│   └── resource_monitor  # Resource monitoring implementation
+│       └── resource-monitor.go
 ├── test                # End-to-end and utility tests
 └── Dockerfile          # Dockerfile for building the controller image
 ```

@@ -1,4 +1,4 @@
-package scheduler
+package evaluator
 
 import (
 	"fmt"
@@ -15,15 +15,15 @@ import (
 // 1. only consider Guaranteed pods: For every Container in the Pod, the resource limit must equal the resource request.
 // 2. the above rule applies to both workloads and the logic for counting the available capacity of nodes
 // 		2.1 i.e. if a Node has a running pod that states a resource limit for CPU but only a resource request for Memory, then the available capacity of such Node will remain untouched for both CPU and Memory by not considering the entire pod
-// 3. If a workload does not fit the bill for bullet 1, the scheduler prints an info message and accepts it.
-// 		3.1 i.e. if a Job has a resource request for 3 CPUs but doesn't specify the CPU resource limit, then it gets accepted by the scheduler (without comparing it with the snapshot) and Kueue will take care of it.
-// 4. If a workload lists in its limits a resource that is not present in the limits of ANY node, the scheduler prints an info message and accepts it.
+// 3. If a workload does not fit the bill for bullet 1, the evaluator prints an info message and accepts it.
+// 		3.1 i.e. if a Job has a resource request for 3 CPUs but doesn't specify the CPU resource limit, then it gets accepted by the evaluator (without comparing it with the snapshot) and Kueue will take care of it.
+// 4. If a workload lists in its limits a resource that is not present in the limits of ANY node, the evaluator prints an info message and accepts it.
 
-// Schedule checks if a workload can be scheduled on any node in the snapshot.
+// evaluate checks if a workload can be scheduled on any node in the snapshot.
 // Returns true if it can be scheduled, false otherwise, along with any scheduling errors.
-func Schedule(wl kueueapi.Workload, snapshot resource_monitor.Snapshot, gang bool) (bool, error) {
-	// Initialize the logger for the scheduler
-	log := logger.GetLogger().WithField("component", "scheduler")
+func Evaluate(wl kueueapi.Workload, snapshot resource_monitor.Snapshot, gang bool) (bool, error) {
+	// Initialize the logger for the evaluator
+	log := logger.GetLogger().WithField("component", "evaluator")
 	log.Logger.SetLevel(logrus.DebugLevel)
 	log.Info("---------->> Starting scheduling process for workload ", wl.Name)
 
@@ -73,7 +73,7 @@ func Schedule(wl kueueapi.Workload, snapshot resource_monitor.Snapshot, gang boo
 // workloadCanRunOnNode checks if the workload's tolerations allow it to run on a node.
 // It also checks for nodeSelector labels
 func workloadCanRunOnNode(wl kueueapi.Workload, node resource_monitor.NodeUsage) bool {
-	//log := logger.GetLogger().WithField("component", "scheduler")
+	//log := logger.GetLogger().WithField("component", "evaluator")
 	workloadTolerations := getWorkloadTolerations(wl)
 
 	// Check if the node matches the workload's nodeSelector
@@ -101,7 +101,7 @@ func workloadCanRunOnNode(wl kueueapi.Workload, node resource_monitor.NodeUsage)
 // nodeSelectorMatches checks if the node satisfies the workload's nodeSelector constraints.
 // A nodeSelector defines hard constraints that must match for a workload to run on a node.
 func nodeSelectorMatches(wl kueueapi.Workload, node resource_monitor.NodeUsage) bool {
-	log := logger.GetLogger().WithField("component", "scheduler")
+	log := logger.GetLogger().WithField("component", "evaluator")
 	//log.Info("Starting to check NodeSelector")
 	// Ensure the workload has at least one PodSet
 	if len(wl.Spec.PodSets) == 0 {

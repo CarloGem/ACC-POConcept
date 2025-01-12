@@ -39,9 +39,9 @@ import (
 
 	// from step by step
 	kueueapi "sigs.k8s.io/kueue/apis/kueue/v1beta1"
+	"sigs.k8s.io/kueue/cmd/experimental/demo-acc/pkg/evaluator"
 	"sigs.k8s.io/kueue/cmd/experimental/demo-acc/pkg/logger"
 	"sigs.k8s.io/kueue/cmd/experimental/demo-acc/pkg/resource_monitor"
-	"sigs.k8s.io/kueue/cmd/experimental/demo-acc/pkg/scheduler"
 	"sigs.k8s.io/kueue/pkg/util/admissioncheck"
 	"sigs.k8s.io/kueue/pkg/workload"
 )
@@ -138,7 +138,7 @@ func (r *WorkloadReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 
 	// Schedule the workload
 	gang := true
-	canSchedule, err := scheduler.Schedule(wl, snapshot, gang)
+	canSchedule, err := evaluator.Evaluate(wl, snapshot, gang)
 	if err != nil {
 		logger.Error("Error during scheduling %s", err)
 		// return ctrl.Result{}, err

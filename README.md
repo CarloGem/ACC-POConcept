@@ -11,6 +11,7 @@ Based on https://github.com/kubernetes-sigs/kueue/pull/3265
 - **Admission Control**: Ensures workloads are admitted after custom checks, such as delaying admission for a minute after creation.
 - **Resource Monitoring**: Periodically collects node and pod resource usage and logs snapshots upon workload admission.
 - **RBAC Configurations**: Includes necessary permissions to interact with Kubernetes API resources like nodes, pods, workloads, and admission checks.
+- **KEP**: Files to submit for a KEP base on the template at https://github.com/kubernetes-sigs/kueue/tree/main/keps/NNNN-template 
 
 ---
 
@@ -34,6 +35,7 @@ Based on https://github.com/kubernetes-sigs/kueue/pull/3265
 │   └── resource_monitor  # Resource monitoring implementation
 │       └── resource-monitor.go
 ├── test                # End-to-end and utility tests
+├── NNNN-template       # KEP for the Admission Check Controller
 └── Dockerfile          # Dockerfile for building the controller image
 ```
 

@@ -1,4 +1,4 @@
-# KEP-NNNN: RefuseFalseAccept
+# KEP-NNNN: ReduceFalseAdmissions
 
 <!--
 This is the title of your KEP. Keep it short, simple, and descriptive. A good
@@ -24,7 +24,6 @@ tags, and then generate with `hack/update-toc.sh`.
 - [Proposal](#proposal)
   - [User Stories (Optional)](#user-stories-optional)
     - [Story 1](#story-1)
-    - [Story 2](#story-2)
   - [Notes/Constraints/Caveats (Optional)](#notesconstraintscaveats-optional)
   - [Risks and Mitigations](#risks-and-mitigations)
 - [Design Details](#design-details)
@@ -59,10 +58,12 @@ updates.
 [documentation style guide]: https://github.com/kubernetes/community/blob/master/contributors/guide/style-guide.md
 -->
 
-Introduce a new AdmissionCheck called RefuseFalseAccept, and related Controller, to decrease the chances for Kueue to admit a Guaranteed Workload that cannot effectively land on any node on Kubernetes.
+Introduce a new experimental AdmissionCheck called ReduceFalseAdmissions, and related Controller, to decrease the chances for Kueue to admit a Guaranteed Workload that cannot effectively land on any node on Kubernetes.
 
-It does so by checking if there is at least one combination of Nodes that can host each one of the Workload's Pods.
-By Guaranteed Workload we mean a Workload exclusively composed by Pods with a Guaranteed Quality of Service (G-QoS), so Pods where each resource request is the same as its resource limits.
+It does so by checking if there is at least one way for the Nodes on the Cluster to host the Workload.
+
+The AdmissionCheck Controller always admits Workloads that contain at least one Pod that does not fall under the Guaranteed QoS.
+The resource request of a Pod with Guaranteed QoS is identical to its resource limit.
 
 
 ## Motivation
@@ -76,11 +77,11 @@ demonstrate the interest in a KEP within the wider Kubernetes community.
 [experience reports]: https://github.com/golang/go/wiki/ExperienceReports
 -->
 
-By defualt Kueue decides to admit or not a workload based on the ClusterQuota availability.
+By default Kueue decides to admit or not a workload based on the ClusterQuota availability.
 This can lead to wrongful admissions if the resources are spread across Nodes in a way that no single Node can fully host at least a single Pod of the Workload. 
 
-In such specific settings, without an additional check, Kueue would reserve indefinetly the Workload's resource from the ClusterQuota while the Workload itself is not accepted by Kubernetes.
-This may cause Kueue's ClusterQuota to not reflect the true resource usage on the Cluster, possibly refusing incoming Workloads eventhough the Cluster could host them.
+In these cases Kueue reserves the Workload's resource from the ClusterQuota but Kubernetes doesn't actually schedule the Workload.
+This may cause Kueue's ClusterQuota to not reflect the true resource usage on the Cluster, possibly refusing incoming Workloads even though the Cluster could host them.
 
 ### Goals
 
@@ -116,17 +117,17 @@ The "Design Details" section below is for the real
 nitty-gritty.
 -->
 
-Introduce RefusedFalseAccept (RFA) AdmissionCheck and controller.
+Introduce ReduceFalseAdmission (RFA) AdmissionCheck and controller.
 
 After a Guaranteed Workload passes the preadmission phase, where Kueue checks if there are enough available resources in the ClusterQuota that can be consumed, RFA will perform an additional control.
 
-RFA will check if there is at least one combination of one or more Nodes that can host the incoming Workload: to do so, the incoming Workload's resource limits will be compared with the available resources on suitable Nodes (meaning Nodes whose metadata do not provoke any conflict with the metadata of the incoming Workload).
+RFA will check if there is at least one combination of one or more Nodes that can host the incoming Workload: to do so, the incoming Workload's resource limits will be compared with the available resources on suitable Nodes. Suitable Nodes are those whose labels and Taints are compatible with the incoming Workload.
 
 Since we want to evaluate only Workloads with a Guaranteed QoS against similar Workloads, RFA will consider as unavailable only the resources already allocated for running Guaranteed Workloads on the Cluster. For the same reason, if an incoming Workload does not have a Guaranteed QoS, it won't be checked by RFA AdmissionCheck (leading to an auto-admission).
 
-If a Workload is accepted by RFA, then the Kube Scheduler will take care of the actual scheduling; if RFA rejects it, for now, the Workload will retry admission after a few seconds.
+If a Workload is accepted by RFA, then the Kube Scheduler will take care of the actual scheduling; if RFA rejects it, for now, the Workload will be requeued for an AdmissionCheck later.
 
-Without this check performed by RFA, there may be scenarios where a Guaranteed Workload is admitted by Kueue, but the resources on the Cluster are spread across the Nodes in a way that makes it impossible for Kubernetes to actually schedule it. Thanks to RFA, we want to decrease the chances of this happening.
+The proposed AdmissionCheck reduces the chances for Kueue to falsely admit a Workload.
 
 
 ### User Stories (Optional)
@@ -150,9 +151,11 @@ So the new state is:
 * Cluster Quota with 1/12 cores available.
 * Node 0, Node 1, Node 2, Node 3 each with 2/4 cores available.
 
-If i wanted to create a Workload with a single Pod requiring 2 cores, Kueue would refuse it even though it could actually be scheduled.
+If I wanted to create a Workload with a single Pod requiring 2 cores, Kueue would reject it even though it could actually be scheduled.
 
-#### Story 2
+![Example of False Admission](./Screenshot%202025-01-13%20at%2014.06.43.png)
+
+
 
 ### Notes/Constraints/Caveats (Optional)
 
@@ -177,6 +180,11 @@ How will UX be reviewed, and by whom?
 Consider including folks who also work outside the SIG or subproject.
 -->
 
+* Performance wise, the periodic check of the Cluster's state could lead to a heavy usage of resources in case of large Clusters
+ 
+* ACC requires permission to view all Nodes and Pods a cross the Cluster
+
+
 ## Design Details
 
 <!--
@@ -187,7 +195,7 @@ proposal will be implemented, this is the place to discuss them.
 -->
 RFA is made by two sub components: Resource Monitor and Evaluator.
 
-By interacting with Kubernetes API, Resource Monitor will periodically watch the resource usage of the Nodes across a Cluster. This usage will compherend all Pods belonging to a Guaranteed QoS Job (wether it was scheduled through Kueue or other frameworks), while it will ignore resources allocated for other QoS Jobs. Resource Monitor will update a structure called Snapshot everytime it fetches new informations from the Cluster. Such Snapshot will contain Nodes' information like Name, metadata (Taints, labels, etc), the Node's remaining resources and info on Pods running on the Node; Pods informations will be its uuid, name, namespace and resource limits.
+By interacting with Kubernetes API, Resource Monitor will periodically watch the resource usage of the Nodes across a Cluster. This usage will consider all Pods belonging to a Guaranteed QoS Job (regardless if it was scheduled through Kueue or any other method). It will ignore resources allocated for other QoS Jobs. Resource Monitor will update a structure called Snapshot everytime it fetches new information from the Cluster. Such Snapshot will contain Nodes' information like Name, metadata (Taints, labels, etc), the Node's remaining resources and info on Pods running on the Node; Pods information will be its uuid, name, namespace and resource limits.
 
 ```go
 // PodInfo holds information about each pod running on a node
@@ -215,7 +223,7 @@ type Snapshot struct {
 }
 ```
 
-When a new Guaranteed Workload is created and has a Quota Reservation by Kueue, Evaluator will compare its resource limits with the last Snapshot caputer by Resource Monitor. Such comparson will take into consideration Nodes' Taints, labels and Workload's Toleration and NodeSelector, in addition to check if a suitable subset of Nodes has enough available resource to host each Pod's resource limits.
+When a new Guaranteed Workload is created and has a Quota Reservation by Kueue, Evaluator will compare its resource limits with the last Snapshot captured by Resource Monitor. Such comparison will take into consideration Nodes' Taints, labels and Workload's Toleration and NodeSelector. In addition, it will check if a suitable subset of Nodes has enough available resource to host each Pod's resource limits.
 
 If Evaluator returns true, then RFA AdmissionCheck state is Ready, otherwise the Workload will be requeued and another attempt will be made after 60 seconds.
 
@@ -234,9 +242,7 @@ when drafting this test plan.
 [testing-guidelines]: https://git.k8s.io/community/contributors/devel/sig-testing/testing.md
 -->
 
-*Not required until targeted at a release.*
-
-[ ] I/we understand the owners of the involved components may require updates to
+[x] I/we understand the owners of the involved components may require updates to
 existing tests to make this code solid enough prior to committing the changes necessary
 to implement this enhancement.
 
@@ -294,6 +300,19 @@ milestones with these graduation criteria:
 [deprecation-policy]: https://kubernetes.io/docs/reference/using-api/deprecation-policy/
 -->
 
+The feature starts at the alpha level, with a feature gate.
+
+In Alpha version RFA will support:
+
+- Subcomponents as described above.
+
+Graduation to beta criteria:
+
+- Positive feedback from users.
+- Most of the integrations supported.
+- Major bugs and deficiencies are not found/fixed.
+- Roadmap for missing features is defined.
+
 ## Implementation History
 
 <!--
@@ -306,8 +325,13 @@ Major milestones might include:
 - the version of Kubernetes where the KEP graduated to general availability
 - when the KEP was retired or superseded
 -->
+
 * 2024-10-14 Start of the Internship focusing on the matter
-* 2024-12-5 Initial working proofs of concept
+* 2024-11-4 First implementation of Resource Monitor
+* 2024-11-7 Designing the structure of the AdmissionCheck Controller
+* 2024-11-27 Build a Dummy ACC that uses the Resource Monitor
+* 2024-12-12 Augment the ACC with a very simple Scheduler/Evaluator
+* 2024-12-20 Augment the ACC with one non-trivial gang scheduling policy
 * 2025-01-13 Initial KEP
 
 ## Drawbacks
@@ -315,8 +339,7 @@ Major milestones might include:
 <!--
 Why should this KEP _not_ be implemented?
 -->
-* Doesn't completely negate false acceptions
-* Works only for Guaranteed Workloads
+* Doesn't completely negate false admissions
 * Other ACCs like Topology Aware Scheduling could provide similar functionalities
 
 ## Alternatives
@@ -326,3 +349,7 @@ What other approaches did you consider, and why did you rule them out? These do
 not need to be as detailed as the proposal, but should include enough
 information to express the idea and why it was not acceptable.
 -->
+
+
+* Using the Topology Aware Scheduling. However, TAS may also be overkill when the "topology" is totally flat (just nodes) and all that is desired is to prevent the churn/waste of useless admission of workloads that contain individual pods that can't possibly be scheduled because no node has the requested capacity.
+* Using Cluster Autoscaler. The CA feature that is needed (the check-capacity.autoscaling.x-k8s.io provisioningClassName) requires Kubernetes 1.30.1 or better. OpenShift 4.16 is based on Kubernetes 1.29 and will be supported through mid 2026. So CA is not an option for it.
